@@ -1,0 +1,67 @@
+.container{
+    width: 100%;
+    height: 87vh;
+    background-color: rgb(7, 7, 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body {
+    width: 60%;
+    height: 40%;
+    border: 1px solid rgba(116, 116, 116, 0.603);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  
+
+  
+}
+.backIcon {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.paragraph {
+    color: aliceblue;
+    font-size: 2em;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.employeName {
+    color: rgb(217, 255, 79);
+    font-size: 1.7em;
+}
+.employeSurname {
+    color: rgb(217, 255, 79);
+    font-size: 1.7em;
+}
+
+.employeEmail {
+    color: rgb(217, 255, 79);
+    font-size: 1.7em;
+}
+.employePosition {
+    color: rgb(217, 255, 79);
+    font-size: 1.5em;
+}
+
+.body span {
+    color: aliceblue;
+    font-size: 1em;
+}
+
+
+
+
+
+

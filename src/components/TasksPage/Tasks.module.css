@@ -1,0 +1,65 @@
+.container {
+    width: 100%;
+    height: 87vh;
+    background-color: rgb(10, 10, 10);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.wrapper {
+    width: 100%;
+    height: 80%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow-y: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.taskEmptyBox {
+    position: absolute;
+    top: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.taskEmptyText1 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.taskEmptyText2 {
+    color: rgba(204, 204, 204, 0.623);
+    font-size: 20px;
+}
+
+.createTaskButtonWrapper {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.createTaskIcon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: all .3s;
+}
+
+.createTaskIcon:hover {
+    transform: scale(1.2);
+}

@@ -1,0 +1,19 @@
+.formContainer {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.userForm{
+    width: 80%;
+    height: 100%;
+}
+
+.submitButtonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,23 @@
+.btn {
+    font-size: 15px;
+    font-family: monospace;
+    color: #fff;
+    padding: 0.6em .8em;
+    border: none;
+    border-radius: 5px;
+    background-size: 200%;
+    transition: 0.5s;
+    cursor:pointer;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+  
+  .btn:hover {
+    background-position: right;
+  }
+
+
+
+  

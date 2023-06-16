@@ -1,0 +1,167 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #d6faff88;
+    border-radius: 10px;
+    padding: 15px;
+    min-width: 400px;
+    height: 240px;
+    background-color: rgba(5, 5, 5, 0.788);
+}
+
+
+.editorBody {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #d6faff88;
+}
+
+.updateIcon {
+    width: 27px;
+    height: 27px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgba(98, 151, 250, 0.623);
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.removeIcon {
+    margin-left: 20px;
+    font-size: 25px;
+    color: rgba(250, 104, 98, 0.623);
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.removeIcon:hover {
+    animation: shake 0.3s;
+    animation-iteration-count: infinite;
+}
+
+.firstName {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+
+}
+
+.firstName span {
+    color: rgb(171, 184, 0);
+    margin-right: 10px;
+}
+
+.lastName {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.lastName span {
+    color: rgb(171, 184, 0);
+    margin-right: 10px;
+}
+
+.email {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+
+}
+
+.email span {
+    color: rgb(171, 184, 0);
+    margin-right: 10px;
+}
+
+.employePosition {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+
+}
+
+.employePosition span {
+    color: rgb(171, 184, 0);
+    margin-right: 10px;
+}
+
+.employeId {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+
+}
+
+.employeId span {
+    color: rgb(171, 184, 0);
+    margin-right: 10px;
+}
+
+
+.fromContainer {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userBody{
+    cursor: pointer;
+}
+.paragraphWrapper {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paragraph {
+    font-size: 20px;
+    color: aliceblue;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(0eg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

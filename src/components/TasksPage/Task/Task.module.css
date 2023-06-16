@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #d6faff88;
+    border-radius: 10px;
+    padding: 15px;
+    min-width: 400px;
+    height: 240px;
+    background-color: rgba(5, 5, 5, 0.788);
+}
+
+.name {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.description {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.startDate {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.endDate {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.employeeId {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.container span {
+    color: rgb(0, 126, 184);
+    margin-right: 10px;
+}
