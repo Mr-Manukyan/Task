@@ -10,6 +10,12 @@ export const tasksAPI = {
         return instance.get('tasks').then((res) => res.data.length)
     },
 
+    getAllEmployees() {
+        return instance.get(`employees`).then((res) => res.data)
+    },
+
+
+
     // getOneEmploye(employeID) {
     //     return instance.get(`employees/${employeID}`).then((res) => res.data)
     // },

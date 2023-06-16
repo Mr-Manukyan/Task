@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./MySelect.css";
 import Select from "react-select";
+import { useSelector } from "react-redux";
+import { getAllEmpolyeesIDs } from "../../../redux/Selectors/Tasks-Selector";
 
 const options = [
 	{
@@ -14,7 +16,8 @@ const options = [
 ];
 
 export const MySelect = () => {
-	const [currentCountry, setCurrentCountry] = useState("south-korea");
+	const [currentCountry, setCurrentCountry] = useState();
+	const options = useSelector(getAllEmpolyeesIDs)
 
 	const getValue = () => {
 		return currentCountry

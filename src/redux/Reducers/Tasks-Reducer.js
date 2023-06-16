@@ -7,11 +7,13 @@ const SET_TASKS_PORTION_NUMBER = 'SET_TASKS_PORTION_NUMBER'
 const SET_NUMBER_PAGE = 'SET_EMPLOYEES_NUMBER_PAGE'
 const SET_TASKS_TOTAL_COUNT = 'SET_TASKS_TOTAL_COUNT'
 const SET_IS_LOADING = "APP/SET_IS_LOADING"
+const SET_ALL_EMPOLYEES_IDS = "APP/SET_ALL_EMPOLYEES_IDS"
 
 
 let initialState = {
     tasks: [],
     task: {},
+    employeesIDs: [],
     isLoading: false,
     pageSize: 4,
     currentPage: 1,
@@ -53,6 +55,17 @@ export const tasksReducer = (state = initialState, action) => {
                 totalTaskCount: action.totalTaskCount
             }
 
+        case SET_ALL_EMPOLYEES_IDS:
+            return {
+                ...state,
+                employeesIDs: action.allEmployees.map((employe) => {
+                    return {
+                        value: employe.id,
+                        label: employe.id
+                    }
+
+                })
+            }
 
         case SET_IS_LOADING:
             return {
@@ -99,6 +112,12 @@ export const tasksActions = {
         totalTaskCount,
     }),
 
+    setEmplyeIDs: (allEmployees) =>
+    ({
+        type: SET_ALL_EMPOLYEES_IDS,
+        allEmployees,
+    }),
+
     setIsLoading: (isLoading) =>
     ({
         type: SET_IS_LOADING,
@@ -120,6 +139,21 @@ export const getTasks = (currentPage, pageSize) => {
                 dispatch(tasksActions.setTasks(tasks))
                 dispatch(tasksActions.setTotalTasksCount(tasksTotalCount))
             }
+            dispatch(tasksActions.setIsLoading(false))
+        } catch (err) {
+            console.error(err)
+            dispatch(tasksActions.setIsLoading(false))
+        }
+    }
+}
+
+export const getAllEmployeesID = () => {
+    return async (dispatch) => {
+        try {
+            dispatch(tasksActions.setIsLoading(true))
+            const allEmployees = await tasksAPI.getAllEmployees()
+            debugger
+            dispatch(tasksActions.setEmplyeIDs(allEmployees))
             dispatch(tasksActions.setIsLoading(false))
         } catch (err) {
             console.error(err)

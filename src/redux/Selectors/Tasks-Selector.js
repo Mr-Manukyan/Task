@@ -25,3 +25,6 @@ export const getTasksPortionNumber = (state) => {
 export const getOneTask = (state) => {
     return state.tasksPage.task
 }
+export const getAllEmpolyeesIDs = (state) => {
+    return state.tasksPage.employeesIDs
+}

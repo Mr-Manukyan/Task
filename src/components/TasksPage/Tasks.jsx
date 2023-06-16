@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import style from './Tasks.module.css'
-import { getTasks, tasksActions } from '../../redux/Reducers/Tasks-Reducer'
+import { getAllEmployeesID, getTasks, tasksActions } from '../../redux/Reducers/Tasks-Reducer'
 import {
     getAllTasks, getTasksPageSize,
     getTasksPortionNumber, getTasksCurrentPage,
@@ -21,6 +21,7 @@ export const Tasks = () => {
 
     useEffect(() => {
         dispatch(getTasks(currentPage, pageSize))
+        dispatch(getAllEmployeesID())
     }, [])
 
     const [isShowCreateTasksModalForm, setIsShowCreateTasksModalForm] = useState(false)
