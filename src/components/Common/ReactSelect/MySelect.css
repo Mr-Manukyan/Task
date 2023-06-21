@@ -1,7 +1,7 @@
 .container {
 	width: 50%;
-	margin-top: 30px;
-	margin-bottom: 20px;
+	margin-top: 25px;
+	margin-bottom: 25px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -30,6 +30,7 @@
 	border-radius: 0 !important;
 	border-bottom: 1px solid #66676e !important;
 	box-shadow: none !important;
+	width: 200px;
 }
 
 .custom-select__control--menu-is-open {
@@ -105,4 +106,5 @@
 
 .paragraph {
 	color: rgb(190, 243, 0);
+	margin-bottom: 10px;
 }

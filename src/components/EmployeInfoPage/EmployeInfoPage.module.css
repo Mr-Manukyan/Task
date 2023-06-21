@@ -8,15 +8,14 @@
 }
 
 .body {
-    width: 60%;
-    height: 40%;
-    border: 1px solid rgba(116, 116, 116, 0.603);
-    border-radius: 10px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     position: relative;
+    overflow-y: auto;
   
 
   
@@ -39,20 +38,20 @@
 
 .employeName {
     color: rgb(217, 255, 79);
-    font-size: 1.7em;
+    font-size: 1.5em;
 }
 .employeSurname {
     color: rgb(217, 255, 79);
-    font-size: 1.7em;
+    font-size: 1.5em;
 }
 
 .employeEmail {
     color: rgb(217, 255, 79);
-    font-size: 1.7em;
+    font-size: 1.5em;
 }
 .employePosition {
     color: rgb(217, 255, 79);
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .body span {
@@ -60,6 +59,89 @@
     font-size: 1em;
 }
 
+.taskBody{
+    border: 1px solid rgba(116, 116, 116, 0.603);
+    border-radius: 10px;
+    width: 90%;
+    margin-top:10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.taskBody div {
+    color: aliceblue;
+}
+.taskBody div  span{
+    color: rgb(22, 162, 255);
+    font-size: 16px;
+}
+
+.employeInfoContainer {
+    border: 1px solid rgba(116, 116, 116, 0.603);
+    border-radius: 10px;
+    width: 40%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.employeInfoWrapper {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.employeTaskInfo {
+    width: 40%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    border: 1px solid rgba(116, 116, 116, 0.603);
+    border-radius: 10px;
+
+}
+.employeInfoParagraph {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(221, 252, 47);
+}
+.taskParagraph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(221, 252, 47);
+}
+
+.employeInfoBody{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+}
+.noTask {
+    font-size: 20px;
+    color: rgba(240, 248, 255, 0.493);
+}
 
 
 

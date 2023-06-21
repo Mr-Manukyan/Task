@@ -15,24 +15,28 @@ export const tasksAPI = {
     },
 
 
+    createOneTask(newTask) {
+        return instance.post('tasks', newTask).then(res => res.data)
+    },
 
-    // getOneEmploye(employeID) {
-    //     return instance.get(`employees/${employeID}`).then((res) => res.data)
-    // },
+    updateOneTaskData(taskId, updatedTaskData) {
+        return instance.patch(`tasks/${taskId}`, updatedTaskData).then((res) => res.data)
+    },
 
+    removeOneTask(taskId) {
+        return instance.delete(`tasks/${taskId}`).then((res) => res.data)
+    },
 
+    getAllEmployeTasksByID(employeID) {
+        return instance.get(`tasks?employeeId=${employeID}`).then((res) => res.data)
+    },
 
-    // createOneEnploye(newEmploye) {
-    //     return instance.post('employees', newEmploye).then(res => res.data)
-    // },
+    getOneTask(taskID) {
+        return instance.get(`tasks/${taskID}`).then((res) => res.data)
+    },
 
-    // removeOneEmploye(id) {
-    //     return instance.delete(`employees/${id}`).then((res) => res.data)
-    // },
-
-    // updateOneEmploeData(id, updatedEmployeData) {
-    //     return instance.patch(`employees/${id}`, updatedEmployeData).then((res) => res.data)
-    // },
-
+    searchTaskByName(employeName) {
+        return instance.get(`tasks?name_like=${employeName}`).then((res) => res.data)
+    },
 
 }

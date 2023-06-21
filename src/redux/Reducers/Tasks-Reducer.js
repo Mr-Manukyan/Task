@@ -7,19 +7,19 @@ const SET_TASKS_PORTION_NUMBER = 'SET_TASKS_PORTION_NUMBER'
 const SET_NUMBER_PAGE = 'SET_EMPLOYEES_NUMBER_PAGE'
 const SET_TASKS_TOTAL_COUNT = 'SET_TASKS_TOTAL_COUNT'
 const SET_IS_LOADING = "APP/SET_IS_LOADING"
-const SET_ALL_EMPOLYEES_IDS = "APP/SET_ALL_EMPOLYEES_IDS"
+const SET_ALL_EMPOLYEES_FULL_NAME = "APP/SET_ALL_EMPOLYEES_FULL_NAME"
+
 
 
 let initialState = {
     tasks: [],
     task: {},
-    employeesIDs: [],
+    employeesFullName: [],
     isLoading: false,
     pageSize: 4,
     currentPage: 1,
     totalTaskCount: 0,
     portionNumber: 1,
-
 }
 
 export const tasksReducer = (state = initialState, action) => {
@@ -55,13 +55,14 @@ export const tasksReducer = (state = initialState, action) => {
                 totalTaskCount: action.totalTaskCount
             }
 
-        case SET_ALL_EMPOLYEES_IDS:
+        case SET_ALL_EMPOLYEES_FULL_NAME:
             return {
                 ...state,
-                employeesIDs: action.allEmployees.map((employe) => {
+                employeesFullName: action.allEmployees.map((employe) => {
                     return {
-                        value: employe.id,
-                        label: employe.id
+                        value: `${employe.name} ${employe.surname}`,
+                        label: `${employe.name} ${employe.surname}`,
+                        id: employe.id
                     }
 
                 })
@@ -112,9 +113,9 @@ export const tasksActions = {
         totalTaskCount,
     }),
 
-    setEmplyeIDs: (allEmployees) =>
+    setEmplyeesFullName: (allEmployees) =>
     ({
-        type: SET_ALL_EMPOLYEES_IDS,
+        type: SET_ALL_EMPOLYEES_FULL_NAME,
         allEmployees,
     }),
 
@@ -147,13 +148,12 @@ export const getTasks = (currentPage, pageSize) => {
     }
 }
 
-export const getAllEmployeesID = () => {
+export const getAllEmployeesFullName = () => {
     return async (dispatch) => {
         try {
             dispatch(tasksActions.setIsLoading(true))
             const allEmployees = await tasksAPI.getAllEmployees()
-            debugger
-            dispatch(tasksActions.setEmplyeIDs(allEmployees))
+            dispatch(tasksActions.setEmplyeesFullName(allEmployees))
             dispatch(tasksActions.setIsLoading(false))
         } catch (err) {
             console.error(err)
@@ -162,82 +162,98 @@ export const getAllEmployeesID = () => {
     }
 }
 
-// export const getOneEmployeInfo = (employeID) => {
-//     return async (dispatch) => {
-//         try {
-//             dispatch(employeesActions.setIsLoading(true))
-//             const employe = await employeesAPI.getOneEmploye(employeID)
-//             dispatch(employeesActions.setOneEmploye(employe))
-//             dispatch(employeesActions.setIsLoading(false))
-//         } catch (err) {
-//             console.error(err)
-//             dispatch(employeesActions.setIsLoading(false))
-//         }
-//     }
-// }
+export const getOneTaskInfo = (taskID) => {
+    return async (dispatch) => {
+        try {
+            dispatch(tasksActions.setIsLoading(true))
+            const task = await tasksAPI.getOneTask(taskID)
+            dispatch(tasksActions.setOneTask(task))
+            dispatch(tasksActions.setIsLoading(false))
+        } catch (err) {
+            console.error(err)
+            dispatch(tasksActions.setIsLoading(false))
+        }
+    }
+}
 
 
 
-// export const onEmployeesPageChanged = (p, pageSize) => {
-//     return async dispatch => {
-//         try {
-//             dispatch(employeesActions.setIsLoading(true))
-//             dispatch(employeesActions.setCurrentPage(p))
-//             const data = await employeesAPI.getEmployess(p, pageSize)
-//             dispatch(employeesActions.setEmployees(data))
-//             dispatch(employeesActions.setIsLoading(false))
-//         } catch (err) {
-//             console.error(err)
-//             dispatch(employeesActions.setIsLoading(false))
-//         }
+export const onTasksPageChanged = (p, pageSize) => {
+    return async dispatch => {
+        try {
+            dispatch(tasksActions.setIsLoading(true))
+            dispatch(tasksActions.setCurrentPage(p))
+            const tasks = await tasksAPI.getTasks(p, pageSize)
+            dispatch(tasksActions.setTasks(tasks))
+            dispatch(tasksActions.setIsLoading(false))
+        } catch (err) {
+            console.error(err)
+            dispatch(tasksActions.setIsLoading(false))
+        }
 
-//     }
-// }
-
-
-// export const createOneNewEmploye = (newEmploye, currentPage, pageSize = 4) => {
-//     return async (dispatch) => {
-//         try {
-//             dispatch(employeesActions.setIsLoading(true))
-//             await employeesAPI.createOneEnploye(newEmploye)
-//             dispatch(getEmployees(currentPage, pageSize))
-//             dispatch(employeesActions.setIsLoading(false))
-//         } catch (err) {
-//             console.error(err)
-//             dispatch(employeesActions.setIsLoading(false))
-//         }
-//     }
-// }
-
-// export const deleteOneEmploye = (employeID, currentPage, pageSize) => {
-
-//     return async (dispatch) => {
-//         try {
-//             dispatch(employeesActions.setIsLoading(true))
-//             await employeesAPI.removeOneEmploye(employeID)
-//             dispatch(getEmployees(currentPage, pageSize))
-//             dispatch(employeesActions.setIsLoading(false))
-//         } catch (err) {
-//             console.error(err)
-//             dispatch(employeesActions.setIsLoading(false))
-//         }
-//     }
-// }
+    }
+}
 
 
-// export const updateOneEmploeData = (id, updatedEmployeData, currentPage, pageSize) => {
-//     return async (dispatch) => {
-//         try {
-//             dispatch(employeesActions.setIsLoading(true))
-//             await employeesAPI.updateOneEmploeData(id, updatedEmployeData)
-//             dispatch(getEmployees(currentPage, pageSize))
-//             dispatch(employeesActions.setIsLoading(false))
-//         } catch (err) {
-//             console.error(err)
-//             dispatch(employeesActions.setIsLoading(false))
-//         }
-//     }
-// }
+export const createOneNewTask = (newTask, currentPage, pageSize = 4) => {
+    return async (dispatch) => {
+        try {
+            dispatch(tasksActions.setIsLoading(true))
+            await tasksAPI.createOneTask(newTask)
+            dispatch(getTasks(currentPage, pageSize))
+            dispatch(tasksActions.setIsLoading(false))
+        } catch (err) {
+            console.error(err)
+            dispatch(tasksActions.setIsLoading(false))
+        }
+    }
+}
+
+export const deleteOneTask = (taskId, currentPage, pageSize) => {
+
+    return async (dispatch) => {
+        try {
+            dispatch(tasksActions.setIsLoading(true))
+            await tasksAPI.removeOneTask(taskId)
+            dispatch(getTasks(currentPage, pageSize))
+            dispatch(tasksActions.setIsLoading(false))
+        } catch (err) {
+            console.error(err)
+            dispatch(tasksActions.setIsLoading(false))
+        }
+    }
+}
+
+
+export const updateOneTaskData = (taskId, updatedTaskData, currentPage, pageSize) => {
+
+    return async (dispatch) => {
+
+        try {
+            dispatch(tasksActions.setIsLoading(true))
+            await tasksAPI.updateOneTaskData(taskId, updatedTaskData)
+            dispatch(getTasks(currentPage, pageSize))
+            dispatch(tasksActions.setIsLoading(false))
+        } catch (err) {
+            console.error(err)
+            dispatch(tasksActions.setIsLoading(false))
+        }
+    }
+}
+
+export const searchTaskByEmployeName = (employeName) => {
+    return async (dispatch) => {
+        try {
+            dispatch(tasksActions.setIsLoading(true))
+            const tasks = await tasksAPI.searchTaskByName(employeName)
+            dispatch(tasksActions.setTasks(tasks))
+            dispatch(tasksActions.setIsLoading(false))
+        } catch (err) {
+            console.error(err)
+            dispatch(tasksActions.setIsLoading(false))
+        }
+    }
+}
 
 
 

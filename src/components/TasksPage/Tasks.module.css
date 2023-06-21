@@ -42,15 +42,18 @@
     color: rgba(204, 204, 204, 0.623);
     font-size: 20px;
 }
-
+.createTaskIconWrapper{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 .createTaskButtonWrapper {
-    position: absolute;
-    right: 15px;
-    top: 15px;
     height: 50px;
     width: 50px;
+    margin-right: 10px;
     cursor: pointer;
-    z-index: 2;
 }
 
 .createTaskIcon {
@@ -62,4 +65,29 @@
 
 .createTaskIcon:hover {
     transform: scale(1.2);
+}
+
+.noResult {
+    width: 30%;
+    height: 100px;
+    border: 1px solid rgba(245, 245, 245, 0.233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    position: absolute;
+    border-radius: 5px;
+    background-color: black;
+
+}
+
+.noResult p {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    color: rgba(255, 255, 255, 0.507);
+    font-size: 20px;
+    letter-spacing: 2px;
+
 }

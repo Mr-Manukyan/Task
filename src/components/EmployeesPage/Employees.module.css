@@ -32,14 +32,21 @@
     align-items: center;
 }
 
+.createEmployeWrapper {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
 .createEmployeButtonWrapper {
-    position: absolute;
-    right: 15px;
-    top: 15px;
     height: 50px;
     width: 50px;
+    margin-right: 10px;
     cursor: pointer;
-    z-index: 10;
+ 
 }
 
 .createEmployeIcon {
@@ -47,6 +54,7 @@
     max-height: 100%;
     object-fit: cover;
     transition: all .3s;
+
 }
 
 .createEmployeIcon:hover {

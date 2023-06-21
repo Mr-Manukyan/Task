@@ -75,10 +75,11 @@ export const Employees = () => {
                 }
             </AnimatePresence>
             <div className={style.container}>
-                <div className={style.createEmployeButtonWrapper} onClick={() => setIsShowCreateEmployeModalForm(true)}>
-                    <img src={createEmployeIcon} className={style.createEmployeIcon} alt='createIcon' />
+                <div className={style.createEmployeWrapper}>
+                    <div className={style.createEmployeButtonWrapper} onClick={() => setIsShowCreateEmployeModalForm(true)}>
+                        <img src={createEmployeIcon} className={style.createEmployeIcon} alt='createIcon' />
+                    </div>
                 </div>
-
                 <div className={style.wrapper}>
 
                     {isLoading && <Loading />}

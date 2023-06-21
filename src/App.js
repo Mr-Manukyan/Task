@@ -4,6 +4,7 @@ import { Employees } from './components/EmployeesPage/Employees'
 import { EmployeInfoPage } from './components/EmployeInfoPage/EmployeInfoPage'
 import { Tasks } from './components/TasksPage/Tasks'
 import './App.css'
+import { TaskInfoPage } from './components/TaskInfoPage/TaskInfoPage'
 
 
 
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/" element={<Employees />} />
         <Route path="/employe/:id" element={<EmployeInfoPage />} />
         <Route path="/tasks" element={<Tasks />} />
+        <Route path="/task/:id" element={<TaskInfoPage />} />
       </Routes>
     </div>
   )

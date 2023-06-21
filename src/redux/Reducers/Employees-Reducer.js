@@ -1,4 +1,5 @@
 import { employeesAPI } from "../../api/Employees-API/Employees-API"
+import { tasksAPI } from "../../api/Employees-API/Tasks-API"
 
 const SET_EMPLOYEES = "APP/SET_EMPLOYEES"
 const SET_ONE_EMPLOYE = "APP/SET_ONE_EMPLOYE"
@@ -6,11 +7,13 @@ const SET_EMPLOYEES_PORTION_NUMBER = 'SET_EMPLOYEES_PORTION_NUMBER'
 const SET_NUMBER_PAGE = 'SET_EMPLOYEES_NUMBER_PAGE'
 const SET_EMPLOYEES_TOTAL_COUNT = 'SEY_EMPLOYEES_TOTAL_COUNT'
 const SET_IS_LOADING = "APP/SET_IS_LOADING"
+const SET_EMPLOYE_ALL_TASKS = "APP/SET_EMPLOYE_ALL_TASKS"
 
 
 let initialState = {
     employees: [],
     employe: {},
+    employeAllTasks: [],
     isLoading: false,
     pageSize: 4,
     currentPage: 1,
@@ -29,6 +32,11 @@ export const employeesReducer = (state = initialState, action) => {
                 employees: action.employees,
             }
 
+        case SET_EMPLOYE_ALL_TASKS:
+            return {
+                ...state,
+                employeAllTasks: action.tasks,
+            }
         case SET_ONE_EMPLOYE:
             return {
                 ...state,
@@ -72,6 +80,12 @@ export const employeesActions = {
     ({
         type: SET_EMPLOYEES,
         employees,
+    }),
+
+    setEmployeAllTasksByID: (tasks) =>
+    ({
+        type: SET_EMPLOYE_ALL_TASKS,
+        tasks,
     }),
 
     setOneEmploye: (employe) =>
@@ -132,7 +146,9 @@ export const getOneEmployeInfo = (employeID) => {
         try {
             dispatch(employeesActions.setIsLoading(true))
             const employe = await employeesAPI.getOneEmploye(employeID)
+            const allEmployeTasks = await tasksAPI.getAllEmployeTasksByID(employeID)
             dispatch(employeesActions.setOneEmploye(employe))
+            dispatch(employeesActions.setEmployeAllTasksByID(allEmployeTasks))
             dispatch(employeesActions.setIsLoading(false))
         } catch (err) {
             console.error(err)
