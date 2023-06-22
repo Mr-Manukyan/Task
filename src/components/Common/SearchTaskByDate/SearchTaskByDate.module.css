@@ -1,0 +1,87 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container h3{
+   color: rgb(48, 162, 255);
+}
+
+.calendarWrapper {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.starDateCalendar {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.endDateCalendar {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.startDate {
+    color: aliceblue;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.endDate {
+    color: aliceblue;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.endCalendar {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.startDateText {
+    color: rgb(235, 255, 59);
+    font-size: 16px;
+}
+
+.endDateText {
+    color: rgb(235, 255, 59);
+    font-size: 16px;
+}
+
+.endCalendar p {
+    color: aliceblue;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.calendar {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.startInfo {
+    color: aliceblue;
+    font-size: 16px;
+}

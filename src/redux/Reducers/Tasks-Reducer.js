@@ -255,6 +255,20 @@ export const searchTaskByEmployeName = (employeName) => {
     }
 }
 
+export const searchTaskByDateData = (startDate, endDate) => {
+    return async (dispatch) => {
+        try {
+            dispatch(tasksActions.setIsLoading(true))
+            const tasks = await tasksAPI.searchTaskByDate(startDate, endDate)
+            dispatch(tasksActions.setTasks(tasks))
+            dispatch(tasksActions.setIsLoading(false))
+        } catch (err) {
+            console.error(err)
+            dispatch(tasksActions.setIsLoading(false))
+        }
+    }
+}
+
 
 
 

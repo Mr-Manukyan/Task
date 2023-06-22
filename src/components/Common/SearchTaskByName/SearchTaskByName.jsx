@@ -1,7 +1,7 @@
 import { SearchButton } from './SearchButton/SearchButton'
-import style from './SearchTask.module.css'
+import style from './SearchTaskByName.module.css'
 
-export const SearchTask = () => {
+export const SearchTaskByName = () => {
 
   return (
     <div className={style.container}>

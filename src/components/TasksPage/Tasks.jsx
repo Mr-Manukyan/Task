@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import style from './Tasks.module.css'
 import {
     createOneNewTask, deleteOneTask, getAllEmployeesFullName,
-    getTasks, onTasksPageChanged, updateOneTaskData
+    getTasks, onTasksPageChanged, searchTaskByDateData, updateOneTaskData
 } from '../../redux/Reducers/Tasks-Reducer'
 import {
     getAllTasks, getTasksPageSize,
@@ -17,7 +17,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Task } from './Task/Task'
 import addTaskIcon from '../../assets/icons/addTaskIcon.png'
 import { CreateTaskForm } from '../Common/CreateTaskForm/CreateTaskForm'
-import { SearchTask } from '../Common/SearchTask/SearchTask'
+import { SearchTaskByName } from '../Common/SearchTaskByName/SearchTaskByName'
+import { SearchTaskByDate } from '../Common/SearchTaskByDate/SearchTaskByDate'
 
 export const Tasks = React.memo(() => {
 
@@ -55,6 +56,9 @@ export const Tasks = React.memo(() => {
         dispatch(createOneNewTask(newTask, currentPage, pageSize))
     }
 
+    const searchTaskByDate = (startDate, endDate) => {
+        dispatch(searchTaskByDateData(startDate, endDate))
+    }
 
 
     return (
@@ -71,11 +75,12 @@ export const Tasks = React.memo(() => {
             </AnimatePresence>
             <div className={style.container}>
                 <div className={style.createTaskIconWrapper}>
-                    <SearchTask />
+                    <SearchTaskByName />
                     <div className={style.createTaskButtonWrapper} onClick={() => setIsShowCreateTasksModalForm(true)}>
                         <img src={addTaskIcon} className={style.createTaskIcon} alt='createIcon' />
                     </div>
                 </div>
+                <SearchTaskByDate searchTaskByDate={searchTaskByDate} />
                 <div className={style.wrapper}>
 
                     {isLoading && <Loading />}

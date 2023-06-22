@@ -2,12 +2,12 @@ import style from './Button.module.css'
 
 export const Button = ({
   name, width, fontSize, buttonBlueStyle,
-  height, borderRadius, padding
+  height, borderRadius, padding, callBack,
 }) => {
 
 
   return (
-    <button className={style.btn}
+    <button className={style.btn} onClick={callBack}
       style={{
         width,
         height,

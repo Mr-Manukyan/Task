@@ -38,5 +38,9 @@ export const tasksAPI = {
     searchTaskByName(employeName) {
         return instance.get(`tasks?name_like=${employeName}`).then((res) => res.data)
     },
+    searchTaskByDate(startDate, endDate) {
+        return instance.get(`tasks?startDate=${startDate}&endDate=${endDate}`).then((res) => res.data)
+    },
+
 
 }
